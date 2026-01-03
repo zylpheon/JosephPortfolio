@@ -6,10 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="x-icon" href="images/logo.webp">
     <title>Lift Off - Personal Website</title>
+
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://prod.spline.design">
+
+    <!-- Inline critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #000000;
+            --accent-blue: #5b7eff;
+            --accent-purple: #a78bfa;
+            --light-blue: #8892b0;
+            --lighter-blue: #ccd6f6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-blue);
+            color: var(--lighter-blue);
+            overflow-x: hidden;
+        }
+
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        #welcome {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-content h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 30px var(--accent-blue);
+        }
+    </style>
+
+    <!-- Load fonts with display swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Defer non-critical CSS -->
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" media="print"
         onload="this.media='all'">
@@ -20,6 +92,7 @@
 <body>
     <div id="starfield"></div>
     <div class="mobile-overlay" id="mobileOverlay"></div>
+
     <nav id="navbar">
         <a href="#welcome" class="logo">
             <img src="images/logo.webp" alt="Logo" class="logo-image" width="40" height="40">
@@ -39,14 +112,17 @@
             <span></span>
         </div>
     </nav>
+
     <section id="welcome">
         <spline-viewer loading="lazy" class="planet-model" style="opacity:0;transition:opacity 1s;"
-            url="https://prod.spline.design/ESvzkeT4msrVsm25/scene.splinecode" ui-watermark="false"></spline-viewer>
+            url="https://prod.spline.design/ESvzkeT4msrVsm25/scene.splinecode" events-target="local">
+        </spline-viewer>
         <div class="welcome-content">
             <h1>Hello, Human</h1>
             <p>I come in peace. Let's get to know each other</p>
         </div>
     </section>
+
     <section id="about">
         <h2 class="section-title" data-aos="fade-up">About Me</h2>
         <div class="profile-picture-frame" data-aos="zoom-in" data-aos-delay="50">
@@ -74,6 +150,7 @@
             </div>
         </div>
     </section>
+
     <section id="skills">
         <h2 class="section-title" data-aos="fade-up">Skills</h2>
         <div class="skills-grid">
@@ -99,6 +176,7 @@
             </div>
         </div>
     </section>
+
     <section id="projects">
         <h2 class="section-title" data-aos="fade-up">Projects</h2>
         <div class="projects-grid">
@@ -128,6 +206,7 @@
             </div>
         </div>
     </section>
+
     <section id="gallery">
         <h2 class="section-title" data-aos="fade-up">Gallery</h2>
         <div class="gallery-grid">
@@ -145,6 +224,7 @@
             </div>
         </div>
     </section>
+
     <section id="contact">
         <h2 class="section-title" data-aos="fade-up">Contact</h2>
         <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
@@ -157,10 +237,13 @@
             </form>
         </div>
     </section>
+
     <footer>
         <p>&copy; 2025 Lift Off. All rights reserved.</p>
     </footer>
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.28/build/spline-viewer.js" defer></script>
+
+    <!-- Load scripts with defer/async -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.28/build/spline-viewer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
     <script src="script.js" defer></script>
 </body>

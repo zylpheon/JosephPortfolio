@@ -5,48 +5,49 @@ AOS.init({
     disable: window.innerWidth < 768
 });
 const starfield = document.getElementById('starfield');
-const starCount = window.innerWidth < 768 ? 50 : 100;
+const starCount = window.innerWidth < 768 ? 30 : 60;
+const fragment = document.createDocumentFragment();
 for (let i = 0; i < starCount; i++) {
     const star = document.createElement('div');
     star.className = 'star';
     const size = Math.random() * 2 + 1;
-    star.style.width = size + 'px';
-    star.style.height = size + 'px';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 100 + '%';
-    star.style.animationDelay = Math.random() * 3 + 's';
-    starfield.appendChild(star);
+    star.style.cssText = `width:${size}px;height:${size}px;left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s`;
+    fragment.appendChild(star);
 }
+starfield.appendChild(fragment);
 let shootingStarInterval;
 let isTabActive = true;
 function createShootingStar() {
     if (!isTabActive) return;
     const shootingStar = document.createElement('div');
     shootingStar.className = 'shooting-star';
-    shootingStar.style.left = Math.random() * 100 + '%';
-    shootingStar.style.top = Math.random() * 50 + '%';
+    shootingStar.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 50}%`;
     starfield.appendChild(shootingStar);
-
     setTimeout(() => shootingStar.remove(), 2000);
 }
-shootingStarInterval = setInterval(createShootingStar, 3000);
+shootingStarInterval = setInterval(createShootingStar, 5000);
 document.addEventListener('visibilitychange', () => {
     isTabActive = !document.hidden;
     if (!isTabActive) {
         clearInterval(shootingStarInterval);
     } else {
-        shootingStarInterval = setInterval(createShootingStar, 3000);
+        shootingStarInterval = setInterval(createShootingStar, 5000);
     }
 });
 const navbar = document.getElementById('navbar');
 let scrollTimeout;
+let lastScrollTop = 0;
 window.addEventListener('scroll', () => {
     if (!scrollTimeout) {
         scrollTimeout = setTimeout(() => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            const scrollTop = window.scrollY;
+            if (Math.abs(scrollTop - lastScrollTop) > 10) {
+                if (scrollTop > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                lastScrollTop = scrollTop;
             }
             scrollTimeout = null;
         }, 100);
@@ -66,14 +67,14 @@ function updateWelcomeEffect() {
     const progress = Math.min(scrolled / maxScroll, 1);
     const scale = 1 + progress * 0.3;
     const blur = progress * 5;
-    const opacity = 1 - progress * 1.2;
+    const opacity = Math.max(1 - progress * 1.2, 0);
     welcomeContent.style.transform = `scale(${scale}) translateZ(0)`;
     welcomeContent.style.filter = `blur(${blur}px)`;
-    welcomeContent.style.opacity = Math.max(opacity, 0);
+    welcomeContent.style.opacity = opacity;
     ticking = false;
 }
 window.addEventListener('scroll', () => {
-    if (!ticking) {
+    if (!ticking && window.scrollY < window.innerHeight * 1.5) {
         window.requestAnimationFrame(updateWelcomeEffect);
         ticking = true;
     }
@@ -124,10 +125,7 @@ const imageObserver = new IntersectionObserver((entries, observer) => {
 }, {
     rootMargin: '100px'
 });
-document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
-});
-document.querySelectorAll('.project-image, .gallery-image').forEach(img => {
+document.querySelectorAll('img[data-src], .project-image, .gallery-image').forEach(img => {
     imageObserver.observe(img);
 });
 document.getElementById('contactForm').addEventListener('submit', (e) => {
@@ -144,11 +142,13 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
 });
 window.addEventListener('load', () => {
     const splineViewer = document.querySelector('spline-viewer');
-    if (splineViewer && window.innerWidth > 768) {
-        setTimeout(() => {
-            splineViewer.style.opacity = '1';
-        }, 500);
-    } else if (splineViewer) {
-        splineViewer.remove();
+    if (splineViewer) {
+        if (window.innerWidth > 768) {
+            setTimeout(() => {
+                splineViewer.style.opacity = '1';
+            }, 500);
+        } else {
+            splineViewer.remove();
+        }
     }
 });
