@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="images/logo.png">
+    <title>Lift Off - Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.28/build/spline-viewer.js"></script>
+</head>
+
+<body>
+    <div id="starfield"></div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav id="navbar">
+        <a href="#welcome" class="logo">
+            <img src="images/logo.png" alt="Logo" class="logo-image">
+            <span>LIFT OFF</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#welcome">Welcome</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section id="welcome">
+        <spline-viewer class="planet-model"
+            url="https://prod.spline.design/ESvzkeT4msrVsm25/scene.splinecode"></spline-viewer>
+        <div class="welcome-content">
+            <h1>Hello, Human</h1>
+            <p>I come in peace. Let's get to know each other</p>
+        </div>
+    </section>
+
+
+    <section id="about">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="profile-picture-frame" data-aos="zoom-in" data-aos-delay="50">
+            <img src="images/profile.jpeg" alt="Joseph Diamond Marci" class="profile-picture">
+        </div>
+        <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+            <p>Greetings my fellow human comrades! My name is Joseph Diamond Marci. I'm a college student currently
+                studying Computer Science (Informatika) at Universitas Atma Jaya Yogyakarta</p>
+            <br>
+            <p>If you feel the need to contact me, you know where to look.</p>
+            <div class="social-icons" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://www.instagram.com/jayythediamond/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61572472988365" target="_blank"
+                    rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/joseph-diamond-a04914307/" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/JayyDee168" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://discord.com/users/stiffyblaze" target="_blank" rel="noopener noreferrer"
+                    aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://web.telegram.org/a/#5813383452" target="_blank" rel="noopener noreferrer"
+                    aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title" data-aos="fade-up">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Web Development</h3>
+                <p> Proficient in modern web development using HTML, CSS, JavaScript, Python, React.js, Node.js, and
+                    PostgreSQL, building excellent scalable and responsive websites.
+                </p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>UI/UX Design</h3>
+                <p>Highly skilled in UI/UX design with a strong emphasis on user-centered design, intuitive interfaces,
+                    and visually clean layouts.</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Web3 and Defi</h3>
+                <p>Having a foundational understanding of Web3 and decentralized finance concepts; specifically
+                    blockchain fundamentals, smart contracts, and decentralized apps.</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Linux</h3>
+                <p>Having a basic knowledge of Linux as an operating system; related to cybersecurity, system
+                    navigation, and command line usage.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title" data-aos="fade-up">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="images/tindog.png" alt="Project Tindog" class="project-image">
+                <div class="project-content">
+                    <h3>Tindog Prototype</h3>
+                    <p>The app to find true love for your most beloved Dog!</p>
+                </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="images/Pustakapay UI.jpg" alt="UI PustakaPay!" class="project-image">
+                <div class="project-content">
+                    <h3>PustakaPay! UI</h3>
+                    <p>UI design for PustakaPay!, your easy to use library companion!</p>
+                </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="images/Nusa.jpg" alt="Nusa Prototype" class="project-image">
+                <div class="project-content">
+                    <h3>Nusa Prototype</h3>
+                    <p>A secure Defi bank equiped with blockchain technology for Indonesian citizens!</p>
+                </div>
+            </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title" data-aos="fade-up">Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                <img src="images/gallery1.jpeg" alt="Gallery Image 1" class="gallery-image">
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                <img src="images/gallery2.jpeg" alt="Gallery Image 2" class="gallery-image">
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                <img src="images/gallery3.jpeg" alt="Gallery Image 3" class="gallery-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title" data-aos="fade-up">Contact</h2>
+        <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+            <p>So Comrade, let's connect and create something awesome together!</p>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lift Off. All rights reserved.</p>
+    </footer>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.28/build/spline-viewer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
